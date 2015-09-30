@@ -47,6 +47,9 @@ static const NSTimeInterval kBackwardCompleteAnimationDuration = 0.18;
     UIView *containerView    = [transitionContext containerView];
     [containerView addSubview:fromVC.view];
     [containerView addSubview:toVC.view];
+    if (self.goingForward) {
+        toVC.view.frame = fromVC.view.frame;
+    }
     
     // Without animation when you have not confirm the protocol
     Protocol *animating = @protocol(RMPZoomTransitionAnimating);
